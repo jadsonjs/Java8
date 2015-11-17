@@ -5,6 +5,10 @@ package lambda;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import javax.swing.JButton;
 
@@ -49,5 +53,43 @@ public class TestLambda {
 		 */
 		JButton j2 = new JButton("JButton2");
 		j2.addActionListener( (event) -> System.out.println("JButton2 Click"+event.getID()) );
+		
+		
+		
+		
+		
+		
+		List<String> palavras = Arrays.asList("joao", "maria", "jose", "paulo");
+		
+		
+		/*
+		 * Queremos ordená-la de acordo com o tamanho de cada String. Para isso criamos um Comparator através de uma classe anônima
+		 */
+		
+		Comparator<String> comparador = new Comparator<String>() {
+			 @Override
+			public int compare(String s1, String s2) {
+			    return Integer.compare(s1.length(), s2.length()); 
+			}
+		};
+		
+		Collections.sort(palavras, comparador);
+		
+		
+		
+		/*
+		 * podemos também criar o Comparator de maneira bem mais enxuta sem utilizar a sintaxe de classe anônima
+		 * 
+		 */
+		Comparator<String> comparadorLambda  = (s1, s2 )->  Integer.compare(s1.length(), s2.length());
+		
+		Collections.sort(palavras, comparadorLambda);
+		
+		/*
+		 * Ou ainda passar tudo isso diretamente como argumento para o sort
+		 */
+		
+		Collections.sort(palavras, (s1, s2 ) ->  Integer.compare(s1.length(), s2.length()));
+		
 	}
 }
