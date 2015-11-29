@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
+ * O que é um stream?  Uma API para operações em seguencia sobre dados
+ * 
  * @author jadson
  *
  * <p><i>This program is distributed without any warranty and it
@@ -46,6 +48,43 @@ public class TestStream {
 		palavras.stream()
 		  	.filter(s -> s.length() < 6)
 		  		.forEach(System.out::println);
+		
+		/*
+		 * Cria um string de uma lista de nomes 
+		 * Depois filtra pelo predicado as palavras que começam com "A"
+		 * Depois chama o mapToINt que recebe uma Fuction,  a Fuction a gente definiu que recebe o nome n que é uma String e retorna o tamanho
+		 * 
+		 * Então estou convertento os nomes quem foram filtrados anteriormente em um lista de inteiros que corresponde aos repectivos tamanhos
+		 * 
+		 * OBS.: Todo métdo mapTo é um transformação. 
+		 * 
+		 * Depois to somando tudo. Sum é um "método terminal", ele não retorna outro stream.
+		 */
+		palavras.stream()
+			.filter( n -> n.startsWith("A") )
+				.mapToInt( n -> n.length()).sum();
+		
+		
+		/*
+		 * Estou tirando os valores repetidos
+		 * Depois chamao o método forEach que recebem um Cosumer que recebe um valor e não retorna nada
+		 * 
+		 *  Então ele está recebendo uma String e está simplement imprimendo essa string 
+		 */
+		palavras.stream()
+			.distinct()
+				.forEach( System.out::println);
+		
+		// ou
+		palavras.stream()
+			.distinct()
+				.forEach( s -> System.out.println(s) );
+		
+		// ou ainda
+		palavras.stream()
+			.distinct()
+				.forEach( (String s) -> System.out.println(s) );	
+		
 	}
 
 }
