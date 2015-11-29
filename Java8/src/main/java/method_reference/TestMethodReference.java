@@ -18,8 +18,7 @@ public class TestMethodReference {
 	 */
 	public static void main(String[] args) {
 		
-		/// com classe anomima
-		
+		/// com classe anonima
 		print(
 			new PrintFuction() {
 				@Override
@@ -27,18 +26,18 @@ public class TestMethodReference {
 					System.out.println(p.getName());
 				}
 			}
-		);
+		, new Person("Anonymous Inner Class") );
 		
-		/// com lambda
-		//print( () -> { } );
+		// com lambda
+		print( (p) -> { System.out.println(p.getName());}, new Person("Lamdda") );
 		
-		/// com method reference
-		print( Person::getName );
+		/// com method reference ???
+		print( Person::getName, new Person("Method Reference") );
 		
 	}
 	
-	public static void print(PrintFuction p){
-		
+	public static void print(PrintFuction pf, Person p){
+		pf.print(p);
 	}
 	
 }
