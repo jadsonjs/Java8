@@ -33,6 +33,16 @@ public class TestStream {
 		@SuppressWarnings("unused")
 		Stream<String> stream = palavras.stream();
 		
+		
+		
+		// Imprimento um lista de palavras com tamanho menor que 6 antes do Java 8
+		
+		for (String s : palavras) {
+			if(s.length() < 6){
+				System.out.println(s);
+			}
+		}
+		
 		/*
 		 * Essa API traz uma forma mais funcional de trabalhar com nossas coleções. 
 		 * Ela possui diversos métodos, como o filter, map e reduce, que recebem uma interface 
@@ -46,8 +56,19 @@ public class TestStream {
 		 *  Imprime apenas os nomes com tamanho < 6
 		 */
 		palavras.stream()
-		  	.filter(s -> s.length() < 6)
-		  		.forEach(System.out::println);
+	  	  .filter(s -> s.length() < 6)
+	  		 .forEach( (String s) -> { System.out.println(s); } );
+		
+		// ou resumidamente
+		palavras.stream()
+	  		.filter(s -> s.length() < 6)
+	  			.forEach( s -> System.out.println(s) );
+		
+		// ou ainda
+		palavras.stream()
+			.filter(s -> s.length() < 6)
+				.forEach(System.out::println);
+				
 		
 		/*
 		 * Cria um string de uma lista de nomes 
