@@ -3,6 +3,7 @@
  */
 package stream;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -56,22 +57,26 @@ public class TestStream {
 		 *  Imprime apenas os nomes com tamanho < 6
 		 */
 		palavras.stream()
-	  	  .filter(s -> s.length() < 6)
+	  	  .filter( ( String s) -> { return s.length() < 6; }  )
 	  		 .forEach( (String s) -> { System.out.println(s); } );
 		
 		// ou resumidamente
+		
+		
 		palavras.stream()
 	  		.filter(s -> s.length() < 6)
 	  			.forEach( s -> System.out.println(s) );
 		
 		// ou ainda
+		
+		
 		palavras.stream()
 			.filter(s -> s.length() < 6)
 				.forEach(System.out::println);
 				
 		
 		/*
-		 * Cria um string de uma lista de nomes 
+		 * Cria um stream de uma lista de nomes 
 		 * Depois filtra pelo predicado as palavras que começam com "A"
 		 * Depois chama o mapToINt que recebe uma Fuction,  a Fuction a gente definiu que recebe o nome n que é uma String e retorna o tamanho
 		 * 
@@ -85,6 +90,19 @@ public class TestStream {
 			.filter( n -> n.startsWith("A") )
 				.mapToInt( n -> n.length()).sum();
 		
+		
+		int soma = 0;
+		
+		List<Integer> tamanhos = new ArrayList<>();
+		for (String n : palavras) {
+			if(n.startsWith("A") ) {
+				tamanhos.add(n.length());
+			}
+		}
+		
+		for (Integer t : tamanhos) {
+			soma += t;
+		}
 		
 		/*
 		 * Estou tirando os valores repetidos

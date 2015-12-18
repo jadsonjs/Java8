@@ -1,7 +1,9 @@
 /**
  * 
  */
-package method_reference;
+package type_annotation;
+
+import java.util.ArrayList;
 
 /**
  * @author jadson
@@ -11,10 +13,16 @@ package method_reference;
  * since the copyright notices are not removed.</i></p>
  *
  */
-@FunctionalInterface
-public interface PrintFuction {
+public class TypeAnnotationTest {
+
+	public static void main(String[] args) {
+				
+		new @NotEmpty ArrayList<String>();
+		
+	}
 	
-	public String print(Person p);
+	public void method() throws @Critical Exception{
+		
+	}
+	
 }
-
-

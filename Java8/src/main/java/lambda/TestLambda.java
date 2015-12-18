@@ -77,6 +77,14 @@ public class TestLambda {
 		
 		
 		
+		Collections.sort(palavras, new Comparator<String>() {
+			 @Override
+			public int compare(String s1, String s2) {
+			    return Integer.compare(s1.length(), s2.length()); 
+			}
+		});
+		
+		
 		/*
 		 * podemos também criar o Comparator de maneira bem mais enxuta sem utilizar a sintaxe de classe anônima
 		 * 
@@ -88,6 +96,9 @@ public class TestLambda {
 		/*
 		 * Ou ainda passar tudo isso diretamente como argumento para o sort
 		 */
+		
+		Collections.sort(palavras, (String s1, String s2 ) 
+				->  { return Integer.compare(s1.length(), s2.length());} );
 		
 		Collections.sort(palavras, (s1, s2 ) ->  Integer.compare(s1.length(), s2.length()));
 		

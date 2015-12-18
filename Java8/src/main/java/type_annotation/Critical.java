@@ -1,7 +1,7 @@
 /**
  * 
  */
-package method_reference;
+package type_annotation;
 
 /**
  * @author jadson
@@ -11,10 +11,7 @@ package method_reference;
  * since the copyright notices are not removed.</i></p>
  *
  */
-@FunctionalInterface
-public interface PrintFuction {
-	
-	public String print(Person p);
+@java.lang.annotation.Target(value={java.lang.annotation.ElementType.TYPE_USE,java.lang.annotation.ElementType.LOCAL_VARIABLE})
+public @interface Critical {
+
 }
-
-

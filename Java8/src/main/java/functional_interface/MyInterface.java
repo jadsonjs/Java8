@@ -18,7 +18,7 @@ import java.util.List;
  * Uma interface funcional é aquela que possui apenas um método abstrato.
  */
 @FunctionalInterface
-public interface MyInteface {
+public interface MyInterface {
 
 	public void action();
 	
@@ -30,5 +30,6 @@ public interface MyInteface {
 	default void sort(List<Integer> c) {
 	    Collections.sort(c);
 	}
-	
 }
+
+
